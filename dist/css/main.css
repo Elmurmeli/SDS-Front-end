@@ -49,7 +49,7 @@
 .menu-nav {
   margin: 0;
   padding: 0;
-  background: #373737;
+  background: #623200;
   list-style: none;
   transform: translate3d(0, -100%, 0);
   transition: all 0.5s ease-out;
@@ -58,7 +58,7 @@
   transform: translate3d(0, 0, 0);
 }
 .menu-branding {
-  background: #444;
+  background: rgb(123, 63, 0);
   transform: translate3d(0, 100%, 0);
   transition: all 0.5s ease-out;
 }
@@ -118,7 +118,7 @@
 }
 
 body {
-  background: #444;
+  background: rgb(123, 63, 0);
   color: #fff;
   height: 100%;
   margin: 0;
@@ -138,7 +138,7 @@ body#bg-img:after {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: rgba(68, 68, 68, 0.9);
+  background: rgba(123, 63, 0, 0.9);
 }
 
 h1,
@@ -157,12 +157,27 @@ h2.sm-heading,
 h3.sm-heading {
   margin-bottom: 2rem;
   padding: 0.2rem 1rem;
-  background: rgba(73, 73, 73, 0.5);
+  background: rgba(133, 68, 0, 0.5);
+}
+h1.main-heading,
+h2.main-heading,
+h3.main-heading {
+  font-size: 6rem;
+  text-align: center;
+}
+h1.desc-heading,
+h2.desc-heading,
+h3.desc-heading {
+  margin-bottom: 2rem;
+  padding: 0.2rem 1rem;
+  background: rgba(133, 68, 0, 0.5);
+  text-align: center;
 }
 
 a {
   color: #fff;
   text-decoration: none;
+  position: center;
 }
 
 header {
@@ -181,6 +196,7 @@ main {
 }
 main .icons {
   margin-top: 1rem;
+  text-align: center;
 }
 main .icons a {
   padding: 0.4rem;
@@ -199,7 +215,7 @@ main#home h1 {
 .about-info {
   display: grid;
   grid-gap: 30px;
-  grid-template-areas: "bioimage bio bio" "job1 job2 job3";
+  grid-template-areas: "bioimage bio bio" "desc desc desc" "job1 job2 job3";
   grid-template-columns: repeat(3, 1fr);
 }
 .about-info .bio-image {
@@ -212,6 +228,12 @@ main#home h1 {
   grid-area: bio;
   font-size: 1.5rem;
 }
+.about-info .desc {
+  grid-area: desc;
+}
+.about-info .desc h1 {
+  font-size: 5rem;
+}
 .about-info .job-1 {
   grid-area: job1;
 }
@@ -222,9 +244,13 @@ main#home h1 {
   grid-area: job3;
 }
 .about-info .job {
-  background: #515151;
+  background: #954c00;
   padding: 0.5rem;
   border-bottom: #eece1a 5px solid;
+}
+.about-info img {
+  width: 100%;
+  border: 3px #fff solid;
 }
 
 .projects {
@@ -240,6 +266,35 @@ main#home h1 {
   opacity: 0.5;
   border-color: #eece1a;
   transition: all 0.5s ease-out;
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+}
+.boxes p {
+  font-size: 2rem;
+  border: 3px #eece1a solid;
+  padding: 1.5rem 2.5rem;
+  margin-bottom: 3rem;
+}
+.boxes div {
+  font-size: 2rem;
+  border: 3px #fff solid;
+  padding: 1.5rem 2.5rem;
+  margin-bottom: 3rem;
+  transition: all 0.5s ease-out;
+}
+.boxes div:hover {
+  padding: 0.5rem 1.5rem;
+  background: #eece1a;
+  color: #000;
+}
+.boxes div:hover span {
+  color: #000;
 }
 
 .btn, .btn-light, .btn-dark {
@@ -259,18 +314,28 @@ main#home h1 {
 }
 
 .btn-light {
-  background: #c4c4c4;
+  background: #ffbf7b;
   color: #333;
 }
 
 #main-footer {
   text-align: center;
   padding: 1rem;
-  background: #2b2b2b;
+  background: #482500;
   color: #fff;
   height: 60px;
 }
 
+@media screen and (min-width: 1171px) {
+  .projects {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1170px) {
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 @media screen and (max-width: 768px) {
   main {
     align-items: center;
@@ -308,10 +373,16 @@ div.menu-branding.show {
     grid-template-areas: "bioimage" "bio" "job1" "job2" "job3";
     grid-template-columns: 1fr;
   }
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media screen and (max-width: 500px) {
   main#home h1 {
     margin-top: 10vh;
+  }
+  .projects {
+    grid-template-columns: 1fr;
   }
 }
 

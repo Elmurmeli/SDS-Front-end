@@ -32,11 +32,24 @@ h3 {
         padding: 0.2rem 1rem;
         background: rgba(lighten($primary-color,2), 0.5);
     }
+
+    &.main-heading {
+        font-size: 6rem;
+        text-align: center;
+    }
+
+    &.desc-heading {
+        margin-bottom: 2rem;
+        padding: 0.2rem 1rem;
+        background: rgba(lighten($primary-color,2), 0.5);
+        text-align: center;
+    }
 }
 
 a{
     color: #fff;
     text-decoration: none;
+    position: center;
 }
 
 header {
@@ -56,10 +69,10 @@ main {
 
     .icons{
         margin-top: 1rem;
+        text-align: center;
 
         a{
             padding: 0.4rem;
-
             &:hover{
                 color: $secondary-color;
                 @include easeOut();
@@ -80,6 +93,7 @@ main {
     grid-gap: 30px;
     grid-template-areas:
         'bioimage bio bio'
+        'desc desc desc'
         'job1 job2 job3';
     grid-template-columns: repeat(3, 1fr);
 
@@ -93,6 +107,13 @@ main {
     .bio {
         grid-area: bio;
         font-size: 1.5rem;
+    }
+
+    .desc {
+        grid-area: desc;
+        h1{
+            font-size: 5rem;
+        }
     }
     
     .job-1 {
@@ -111,6 +132,11 @@ main {
         background: lighten($primary-color, 5);
         padding: 0.5rem;
         border-bottom: $secondary-color 5px solid;
+    }
+    img {
+        width: 100%;
+        border: 3px #fff solid;
+
     }
 }
 
@@ -140,9 +166,18 @@ main {
     align-items: center;
     margin-top: 1rem;
 
+
+
+    p {
+        font-size: 2rem;
+        border: 3px $secondary-color solid;
+        padding: 1.5rem 2.5rem;
+        margin-bottom: 3rem;
+    }
+
     div {
         font-size: 2rem;
-        border: 3px;
+        border: 3px #fff solid;
         padding: 1.5rem 2.5rem;
         margin-bottom: 3rem;
         @include easeOut;
