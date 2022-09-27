@@ -93,7 +93,7 @@ main {
     grid-gap: 30px;
     grid-template-areas:
         'bioimage bio bio'
-        'desc desc desc'
+        'desc desc2 desc3'
         'job1 job2 job3';
     grid-template-columns: repeat(3, 1fr);
 
@@ -105,11 +105,13 @@ main {
     }
     
     .bio {
+
         grid-area: bio;
         font-size: 1.5rem;
     }
 
     .desc {
+        margin: auto;
         grid-area: desc;
         h1{
             font-size: 5rem;
@@ -209,13 +211,22 @@ main {
     @extend .btn;
     background: darken($primary-color, 50);
     color: #fff;
+    &:hover {
+        background: rgb(255,0,0);
+        color: set-text-color($secondary-color);
+    }
 }
 
 .btn-light {
     @extend .btn;
     background: lighten($primary-color, 50);
     color: #333;
+    &:hover {
+        background: rgb(0, 255, 0);
+        color: set-text-color($secondary-color);
+    }
 }
+
 
 #main-footer {
     text-align: center;
